@@ -1,0 +1,61 @@
+
+#left-panel {
+    background-color: #eee;
+    color: #333;
+}
+
+#resizer {
+    background-color: #666;
+}
+
+#top-panel {
+    border-color: #666;
+    color: #666;
+}
+
+#bottom-panel {
+    color: #666;
+}
+
+#editor-header {
+    background-color: #eee;
+    color: #333;
+}
+
+#editor-filename {
+    background-color: #fff;
+    border-color: #666;
+}
+
+#button-box {
+    border-color:  #666;
+}
+
+button {
+    color: #333;
+}
+
+#code-buttons #playBtn {
+    color: #eee;
+    background-color: purple;
+    border-color: purple;
+}
+
+#code-buttons #playBtn:hover:not(:disabled) {
+    background-color: darkmagenta;
+    border-color: darkmagenta;
+}
+
+.defBtn {
+    background-color: #eee;
+    border-color: #666;
+}
+
+.defBtn:hover:not(:disabled) {
+    border-color: purple;
+}
+
+.defBtn:disabled {
+    color: #555;
+    background-color: #ccc;
+}

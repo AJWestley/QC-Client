@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QASM Editor</title>
+  <link rel="stylesheet" href="styles/base_style.css"></link>
+  <link id="theme-dark" rel="stylesheet" href="styles/dark.css"></link>
+  <link id="theme-light" rel="stylesheet" href="styles/light.css" disabled></link>
+  <script src="https://kit.fontawesome.com/1ae5700e02.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="message-box">
+    <div id="connected-msg" disabled>Connected</div>
+    <div id="disconnected-msg" disabled>Disconnected</div>
+    <div id="connection-failed-msg" disabled>Connection Failed</div>
+    <div id="code-error-msg" disabled>Code Error</div>
+  </div>
+  <div id="container">
+    <div id="resizable-container">
+      <div id="left-panel">
+        <div id="top-panel">Top Visualization</div>
+        <div id="bottom-panel">Bottom Visualization</div>
+      <div id="resizer"></div>
+      </div>
+      <div id="right-panel">
+        <div id="editor-header">
+          <div id="editor-filename">untitled.qasm</div>
+          <div id="button-box">
+            <div id="code-buttons">
+                <button id="playBtn">
+                    <i class="fa-solid fa-play"></i>
+                    Run
+                </button>
+                <button id="clearBtn" class="defBtn">
+                    <i class="fa-solid fa-trash"></i>
+                    Clear
+                </button>
+                <button id="brightModeBtn" class="defBtn", onclick="switchTheme()">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </button>
+            </div>
+            <div id="file-buttons">
+                <button id="loadBtn" class="defBtn">
+                    <i class="fa fa-upload" aria-hidden="true"></i>
+                    Upload
+                </button>
+                <button id="saveAsBtn" class="defBtn">
+                    <i class="fa-solid fa-download"></i>
+                    Save As
+                </button>
+                <button id="saveBtn" class="defBtn" disabled>
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Save
+                </button>
+            </div>
+          </div>
+        </div>
+        <div id="editor"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./monaco-editor/min/vs/loader.js"></script>
+  <script type="module" src="scripts/connect.js"></script>
+  <script type="module" src="scripts/validate_code.js"></script>
+  <script type="module" src="scripts/example_programs.js"></script>
+  <script type="module" src="scripts/syntax_highlighting.js"></script>
+  <script type="module" src="scripts/monaco_setup.js"></script>
+  <script type="module" src="scripts/resizable.js"></script>
+  <script src="scripts/swap_style.js"></script>
+</body>
+</html>

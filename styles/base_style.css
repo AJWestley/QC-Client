@@ -1,0 +1,153 @@
+html, body {
+      margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: Verdana, Tahoma, sans-serif, Helvetica, sans-serif;
+}
+
+#message-box {
+  position: fixed;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  transition: top 0.5s ease-in-out;
+}
+
+#message-box.show {
+  top: 10px;
+}
+
+#connected-msg,
+#disconnected-msg,
+#connection-failed-msg,
+#code-error-msg {
+  display: none;
+  color: #eee;
+  padding: 5px 10px;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+#connected-msg.active {
+  display: block;
+  background-color: rgb(38, 153, 38);
+}
+
+#disconnected-msg.active {
+  display: block;
+  background-color: rgb(222, 15, 15);
+}
+
+#connection-failed-msg.active {
+  display: block;
+  background-color: rgb(222, 15, 15);
+}
+
+#code-error-msg.active {
+  display: block;
+  background-color: rgb(208, 132, 32);
+}
+
+#container {
+    display: flex;
+    height: 100%;
+}
+
+#resizable-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+#left-panel {
+    width: 40vw;
+    min-width: 20vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#resizer {
+    width: 3px;
+    cursor: ew-resize;
+    position: absolute;
+    top: 0;
+    right: -2.5px;
+    bottom: 0;
+    z-index: 10;
+}
+
+#top-panel {
+    flex: 1;
+    border-bottom: 3px solid;
+    text-align: center;
+}
+
+#bottom-panel {
+    flex: 1;
+    text-align: center;
+}
+
+#right-panel {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 45vw;
+}
+
+#editor-header {
+    display: inline-flex;
+}
+
+#editor-filename {
+    height: 100%;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    border-top: 2px solid;
+    border-right: 2px solid;
+}
+
+#button-box {
+    width: 100%;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid;
+}
+
+button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 200;
+    border-radius: 2px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#code-buttons #playBtn {
+    padding: 0.3rem 0.5rem;
+    border-style: solid;
+}
+
+
+.defBtn {
+    padding: 0.3rem 0.5rem;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.defBtn:disabled {
+    cursor: not-allowed;
+}
+
+#editor {
+    flex: 1;
+    height: 100%;
+}
