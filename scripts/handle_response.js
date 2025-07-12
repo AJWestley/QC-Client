@@ -1,5 +1,6 @@
 import { getErrors } from "./error_checks.js";
 import { executionFailedMessage } from "./validate_code.js";
+import { plotCounts } from "./plot_results.js";
 
 function createMarkers(response) {
     const model = editor.getModel();
@@ -38,7 +39,7 @@ function createMarkers(response) {
 
 export function execution_success(data) {
     console.log('success');
-    executionFailedMessage(JSON.stringify(data.counts));
+    plotCounts(data.counts);
 }
 
 export function execution_failure(data) {

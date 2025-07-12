@@ -16,7 +16,6 @@
   background: #eee;
 }
 
-/* Scrollbar thumb */
 #circuit-image::-webkit-scrollbar-thumb {
   background-color: #666;
 }
@@ -26,6 +25,22 @@
 }
 
 #circuit-image::-webkit-scrollbar-corner {
+  background: #eee;
+}
+
+#result-plot::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+#result-plot::-webkit-scrollbar-thumb {
+  background-color: #666;
+}
+
+#result-plot::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+#result-plot::-webkit-scrollbar-corner {
   background: #eee;
 }
 

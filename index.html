@@ -25,7 +25,7 @@
             <div id="panel-title">Circuit Diagram</div>
             <button id="saveImageBtn" class="defBtn">
               <i class="fa-solid fa-image"></i>
-              Export SVG
+              Export Diagram
             </button>
           </div>
           <div id="circuit-image" ></div>
@@ -36,10 +36,12 @@
             <div id="panel-title">Results</div>
             <button id="saveResultsBtn" class="defBtn">
               <i class="fa-solid fa-image"></i>
-              Export SVG
+              Export Data
             </button>
           </div>
-          <div id="result-plot" ></div>
+          <div id="result-plot" >
+            <canvas id="barChart"></canvas>
+          </div>
         </div>
       <div id="resizer"></div>
       </div>
@@ -81,6 +83,7 @@
     </div>
   </div>
   <script src="scripts/quantum-circuit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="./monaco-editor/min/vs/loader.js"></script>
   <script type="module" src="scripts/connect.js"></script>
   <script type="module" src="scripts/validate_code.js"></script>
