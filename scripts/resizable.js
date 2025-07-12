@@ -44,7 +44,6 @@ document.addEventListener('mousemove', (e) => {
   const containerOffsetTop = document.getElementById('left-panel').offsetTop;
   const newTopHeight = e.clientY - containerOffsetTop;
 
-  // Set min/max bounds if needed
   const minHeight = 100;
   const maxHeight = document.getElementById('left-panel').clientHeight - 100;
 

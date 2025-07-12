@@ -64,17 +64,13 @@ function saveSVG(filename = 'circuit.svg') {
 
   inlineComputedStyles(svgEl);
 
-  // Optional: clone to avoid modifying the DOM
   const clone = svgEl.cloneNode(true);
 
-  // Add XML namespaces (important for download compatibility)
   clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
   clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
 
-  // Serialize SVG to a string
   const svgString = new XMLSerializer().serializeToString(clone);
 
-  // Create a Blob and download it
   const blob = new Blob([svgString], { type: 'image/svg+xml' });
   const url = URL.createObjectURL(blob);
 
@@ -83,7 +79,6 @@ function saveSVG(filename = 'circuit.svg') {
   link.download = filename;
   link.click();
 
-  // Cleanup
   URL.revokeObjectURL(url);
 }
 

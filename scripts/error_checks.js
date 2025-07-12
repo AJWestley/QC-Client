@@ -236,7 +236,7 @@ function checkIntermediateMeasure(lines) {
     const code = line.split('//')[0];
 
     if (!code || code.startsWith('//') || code.startsWith('#') || violated) {
-      return; // skip empty lines and comments
+      return; 
     }
 
     const isMeasure = /^measure\s+.+?\s*$/.test(code);

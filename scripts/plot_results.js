@@ -54,7 +54,6 @@ document.getElementById('saveResultsBtn').addEventListener('click', function() {
         return;
     }
 
-    // row 1 = all keys, row 2 = all values
     const csvContent = "data:text/csv;charset=utf-8," 
         + Object.keys(data).join(",") + "\n"
         + Object.values(data).join(",");
@@ -63,7 +62,7 @@ document.getElementById('saveResultsBtn').addEventListener('click', function() {
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
     link.setAttribute("download", "measurement_counts.csv");
-    document.body.appendChild(link); // Required for FF
+    document.body.appendChild(link);
 
     link.click();
 });
