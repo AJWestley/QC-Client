@@ -1,20 +1,46 @@
 
 #left-panel {
-    background-color: #2d2d2d;
+    background-color: #1e1e1e;
     color: white;
 }
 
+#panel-header {
+    background-color: #2d2d2d;
+    border-color: #444;
+}
+
 #resizer {
-    background-color: #333;
+    background-color: #444;
+}
+
+#up-down-resizer {
+    background-color: #444;
+}
+
+#circuit-image::-webkit-scrollbar-track {
+  background: #666;
+}
+
+#circuit-image::-webkit-scrollbar-thumb {
+  background-color: #333;
+}
+
+#circuit-image::-webkit-scrollbar-thumb:hover {
+  background-color: #222;
+}
+
+#circuit-image::-webkit-scrollbar-corner {
+  background: #666;
 }
 
 #top-panel {
+    background-color: #1e1e1e;
     border-color: #444;
-    color: #666;
+    color: #aaa;
 }
 
 #bottom-panel {
-    color: #666;
+    color: #aaa;
 }
 
 #editor-header {

@@ -55,7 +55,7 @@ function inlineComputedStyles(svgEl) {
 }
 
 
-function savePNG(filename = 'circuit.png', scale = 10) {
+function saveSVG(filename = 'circuit.svg') {
   const svgEl = document.getElementById("circuit-image").querySelector('svg');
   if (!svgEl) {
     console.error('No SVG found in container.');
@@ -64,48 +64,29 @@ function savePNG(filename = 'circuit.png', scale = 10) {
 
   inlineComputedStyles(svgEl);
 
-  // Clone to avoid modifying DOM
+  // Optional: clone to avoid modifying the DOM
   const clone = svgEl.cloneNode(true);
 
-  // Add required namespaces
+  // Add XML namespaces (important for download compatibility)
   clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
   clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
 
-  // Serialize to string
+  // Serialize SVG to a string
   const svgString = new XMLSerializer().serializeToString(clone);
-  const svgDataUrl = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgString);
 
-  // Create an image from the SVG
-  const img = new Image();
-  img.onload = function () {
-    const canvas = document.createElement('canvas');
-    canvas.width = scale * img.width;
-    canvas.height = scale * img.height;
+  // Create a Blob and download it
+  const blob = new Blob([svgString], { type: 'image/svg+xml' });
+  const url = URL.createObjectURL(blob);
 
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(img, 0, 0);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  link.click();
 
-    // Convert canvas to PNG blob
-    canvas.toBlob(function (blob) {
-      const url = URL.createObjectURL(blob);
-
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = filename;
-      link.click();
-
-      URL.revokeObjectURL(url);
-    }, 'image/png');
-  };
-
-  img.onerror = function (e) {
-    console.error('Failed to load SVG into image:', e);
-  };
-
-  img.src = svgDataUrl;
+  // Cleanup
+  URL.revokeObjectURL(url);
 }
 
-
 document.getElementById('saveImageBtn').addEventListener('click', function() {
-  savePNG('circuit.png');
+  saveSVG('circuit.svg');
 });

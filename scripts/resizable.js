@@ -24,3 +24,38 @@ function stopResize() {
   document.removeEventListener('mousemove', resize);
   document.removeEventListener('mouseup', stopResize);
 }
+
+const up_down_resizer = document.getElementById('up-down-resizer');
+const topPanel = document.getElementById('top-panel');
+const bottomPanel = document.getElementById('bottom-panel');
+const circuitContainer = document.getElementById('circuit-image');
+
+let isDragging = false;
+
+up_down_resizer.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  document.body.style.cursor = 'row-resize';
+  document.body.style.userSelect = 'none';
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+
+  const containerOffsetTop = document.getElementById('left-panel').offsetTop;
+  const newTopHeight = e.clientY - containerOffsetTop;
+
+  // Set min/max bounds if needed
+  const minHeight = 100;
+  const maxHeight = document.getElementById('left-panel').clientHeight - 100;
+
+  if (newTopHeight >= minHeight && newTopHeight <= maxHeight) {
+    topPanel.style.height = `${newTopHeight}px`;
+    topPanel.style.maxHeight = `${newTopHeight}px`;
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  document.body.style.cursor = '';
+  document.body.style.userSelect = '';
+});

@@ -21,16 +21,26 @@
     <div id="resizable-container">
       <div id="left-panel">
         <div id="top-panel">
-          <div id="top-panel-header">
-            <div id="top-panel-title">Top Panel</div>
+          <div id="panel-header">
+            <div id="panel-title">Circuit Diagram</div>
             <button id="saveImageBtn" class="defBtn">
               <i class="fa-solid fa-image"></i>
-              Export PNG
+              Export SVG
             </button>
           </div>
           <div id="circuit-image" ></div>
         </div>
-        <div id="bottom-panel">Bottom Visualization</div>
+        <div id="up-down-resizer"></div>
+        <div id="bottom-panel">
+          <div id="panel-header">
+            <div id="panel-title">Results</div>
+            <button id="saveResultsBtn" class="defBtn">
+              <i class="fa-solid fa-image"></i>
+              Export SVG
+            </button>
+          </div>
+          <div id="result-plot" ></div>
+        </div>
       <div id="resizer"></div>
       </div>
       <div id="right-panel">
