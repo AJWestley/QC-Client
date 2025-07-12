@@ -59,3 +59,112 @@ button {
     color: #555;
     background-color: #ccc;
 }
+
+
+/* ----- Circuit Restyling ----- */
+
+svg text {
+    fill: #333;
+}
+
+svg line {
+    stroke: #333;
+    stroke-width: 2px;
+}
+
+.qc-gate-box {
+    fill: rgb(184, 54, 244);
+    stroke-width: 2px;
+}
+
+.qc-gate-label {
+    fill: black;
+}
+
+.qc-gate-gauge-scale {
+    stroke: black;
+    stroke-width: 1px;
+}
+
+.qc-gate-x {
+    stroke: rgb(184, 54, 244);
+}
+
+.qc-gate-link {
+    stroke: rgb(184, 54, 244);
+}
+
+.qc-gate-link-c {
+    stroke: #aaa;
+}
+
+.qc-gate-group[data-gate^="c"] {
+    .qc-gate-box {
+        fill: rgb(65, 65, 230);
+    }
+
+    .qc-gate-link {
+        stroke: rgb(65, 65, 230);
+    }
+
+    .qc-gate-dot {
+        fill: rgb(65, 65, 230);
+        r: 7;
+        stroke-width: 2px;
+    }
+
+    .qc-gate-not-line {
+        stroke: black;
+    }
+
+    .qc-gate-not {
+        fill: rgb(65, 65, 230);
+        stroke-width: 2px;
+    }
+}
+
+.qc-gate-group[data-gate=h] {
+    .qc-gate-box {
+        fill: red;
+    }
+}
+
+.qc-gate-group[data-gate^="r"] {
+    .qc-gate-box {
+        fill: deeppink;
+    }
+
+    .qc-gate-link {
+        stroke: deeppink;
+    }
+
+    .qc-gate-dot {
+        fill: deeppink;
+        r: 7;
+        stroke-width: 2px;
+    }
+
+    .qc-gate-not-line {
+        stroke: black;
+    }
+}
+
+.qc-gate-group[data-gate^="u"] {
+    .qc-gate-box {
+        fill: deeppink;
+    }
+
+    .qc-gate-link {
+        stroke: deeppink;
+    }
+
+    .qc-gate-dot {
+        fill: deeppink;
+        r: 7;
+        stroke-width: 2px;
+    }
+
+    .qc-gate-not-line {
+        stroke: black;
+    }
+}

@@ -1,5 +1,5 @@
 export function drawCircuit() {
-    const circuitContainer = document.getElementById("top-panel");
+    const circuitContainer = document.getElementById("circuit-image");
     const qasmCode = window.editor.getValue();
     var circuit = new QuantumCircuit();
     circuit.importQASM(qasmCode, function(errors) {

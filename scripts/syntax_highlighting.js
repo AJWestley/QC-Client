@@ -10,10 +10,8 @@ function wordsToRegex(words) {
 }
 
 require(['vs/editor/editor.main'], function () {
-  // ----- Register QASM Language -----
   monaco.languages.register({ id: 'qasm' });
 
-  // ----- Tokenizer (Monarch) -----
   monaco.languages.setMonarchTokensProvider('qasm', {
     defaultToken: '',
 
@@ -54,7 +52,6 @@ require(['vs/editor/editor.main'], function () {
   const isLight = !document.getElementById('theme-light').disabled;
   let theme = isLight ? 'vs-light' : 'vs-dark';
 
-  // ----- Define Custom Theme -----
   monaco.editor.defineTheme('qasm-theme', {
     base: theme,
     inherit: true,
@@ -72,7 +69,6 @@ require(['vs/editor/editor.main'], function () {
     colors: {}
   });
 
-  // ----- Create Editor -----
   window.editor = monaco.editor.create(document.getElementById('editor'), {
     value: DEFAULT_TEXT,
     language: 'qasm',
@@ -92,5 +88,6 @@ require(['vs/editor/editor.main'], function () {
     drawCircuit();
   });
   runLinter();
+  drawCircuit();
 });
 

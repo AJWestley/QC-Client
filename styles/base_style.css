@@ -83,6 +83,8 @@ html, body {
 #top-panel {
     flex: 1;
     border-bottom: 3px solid;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
