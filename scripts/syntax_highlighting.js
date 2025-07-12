@@ -1,4 +1,5 @@
 import { getErrors } from "./error_checks.js";
+import { drawCircuit } from "./visualizations.js";
 import { DEFAULT_TEXT } from "./example_programs.js";
 import { keywords, gates, built_ins } from "./symbols.js";
 
@@ -86,7 +87,10 @@ require(['vs/editor/editor.main'], function () {
     monaco.editor.setModelMarkers(model, 'qasm-linter', getErrors(lines));
   }
 
-  editor.onDidChangeModelContent(() => {runLinter()});
+  editor.onDidChangeModelContent(() => {
+    runLinter();
+    drawCircuit();
+  });
   runLinter();
 });
 

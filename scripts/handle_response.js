@@ -39,15 +39,6 @@ function createMarkers(response) {
 export function execution_success(data) {
     console.log('success');
     executionFailedMessage(JSON.stringify(data.counts));
-    const circuitContainer = document.getElementById("top-panel");
-    const qasmCode = window.editor.getValue();
-    var circuit = new QuantumCircuit();
-    circuit.importQASM(qasmCode, function(errors) {
-        console.log(errors);
-    });
-    console.log('rendering');
-    var svg = circuit.exportSVG(true);
-    circuitContainer.innerHTML = svg;
 }
 
 export function execution_failure(data) {
