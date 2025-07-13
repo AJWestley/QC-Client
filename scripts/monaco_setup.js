@@ -14,7 +14,13 @@ document.getElementById("playBtn").onclick = async () => {
     if (!isValidSyntax(code)) {
       return;
     }
-    const [ result, status ] = await api.execute(code);
+
+    let shots = document.getElementById("shot-selector")?.value;
+    if (!shots || isNaN(shots) || shots < 1 || shots > 10000) {
+      shots = 1024;
+    }
+
+    const [ result, status ] = await api.execute(code, shots);
     if (status === 200) {
       execution_success(result);
     }
@@ -87,4 +93,12 @@ window.addEventListener("keydown", (e) => {
       saveBtn.click();
     }
   }
+});
+
+// ----- Shot Selector -----
+document.getElementById("shot-selector").addEventListener("input", (e) => {
+  const shots = e.target.value;
+  if (shots && (shots < 1 || shots > 10000)) {
+    e.target.value = Math.max(1, Math.min(10000, shots));
+  } 
 });

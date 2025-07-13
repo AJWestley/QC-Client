@@ -12,6 +12,10 @@
     background-color: #666;
 }
 
+.dropdown-content {
+  background-color: #eee;
+}
+
 #circuit-image::-webkit-scrollbar-track {
   background: #eee;
 }

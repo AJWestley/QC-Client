@@ -107,6 +107,19 @@ html, body {
   display: flex;
 }
 
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#shotsDropdownContent {
+    min-width: 100px;
+}
+
+#shot-selector {
+  padding: 0.3rem 0.5rem;
+  border: 2px solid;
+}
+
 #up-down-resizer {
   height: 3px;
   cursor: row-resize;

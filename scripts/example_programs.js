@@ -187,7 +187,7 @@ h q[0];
 h q[1];
 h q[2];
 
-// --- ORACLE START (Marks |101⟩) ---
+// --- ORACLE START (Marks |010⟩) ---
 x q[0];
 x q[2];
 h q[2];
@@ -205,38 +205,19 @@ x q[2];
 // x q[0]; x q[1]; x q[2];
 
 // Mark |001⟩
-// x q[0]; x q[1];
+// x q[1]; x q[2];
 // h q[2]; ccx q[0], q[1], q[2]; h q[2];
-// x q[0]; x q[1];
-
-// Mark |010⟩
-// x q[0]; x q[2];
-// h q[2]; ccx q[0], q[1], q[2]; h q[2];
-// x q[0]; x q[2];
-
-// Mark |011⟩
-// x q[0];
-// h q[2]; ccx q[0], q[1], q[2]; h q[2];
-// x q[0];
+// x q[1]; x q[2];
 
 // Mark |100⟩
-// x q[1]; x q[2];
+// x q[0]; x q[1];
 // h q[2]; ccx q[0], q[1], q[2]; h q[2];
-// x q[1]; x q[2];
-
-// Mark |101⟩
-// x q[0]; x q[2];
-// h q[2]; ccx q[0], q[1], q[2]; h q[2];
-// x q[0]; x q[2];
+// x q[0]; x q[1];
 
 // Mark |110⟩
-// x q[1];
+// x q[0];
 // h q[2]; ccx q[0], q[1], q[2]; h q[2];
-// x q[1];
-
-// Mark |111⟩
-// (no X gates needed)
-// h q[2]; ccx q[0], q[1], q[2]; h q[2];
+// x q[0];
 
 // --- DIFFUSION OPERATOR START ---
 h q[0];
