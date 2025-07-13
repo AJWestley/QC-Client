@@ -321,25 +321,6 @@ measure q[0] -> c[0];
 measure q[1] -> c[1];
 `
 
-const SWAP_TEST = `OPENQASM 2.0;
-include "qelib1.inc";
-
-qreg q[3];  // q[0]: ancilla, q[1]: |psi>, q[2]: |phi>
-creg c[1];  // measure ancilla
-
-// Prepare |psi> on q[1], example |+> = (|0> + |1>)/sqrt(2)
-h q[1];
-
-// Prepare |phi> on q[2], example |0>
- // (No gates needed for |0>)
-
-// Swap Test Circuit
-h q[0];
-cswap q[0], q[1], q[2];  // controlled SWAP
-h q[0];
-
-measure q[0] -> c[0];`
-
 const ERROR_CORRECTION = `OPENQASM 2.0;
 include "qelib1.inc";
 
@@ -394,7 +375,6 @@ const examplePrograms = {
     "Quantum Teleportation": TELEPORTATION,
     "Superdense Coding": SUPERDENSE,
     "Error Correction": ERROR_CORRECTION,
-    "Swap Test": SWAP_TEST,
 }
 
 
