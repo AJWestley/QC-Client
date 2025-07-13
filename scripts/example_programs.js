@@ -267,7 +267,9 @@ const TELEPORTATION = `OPENQASM 2.0;
 include "qelib1.inc";
 
 qreg q[3];
-creg c[3];
+creg c1[1];
+creg c2[1];
+creg c3[1];
 
 // Step 0: Prepare unknown state on q[0]
 // Example: |+> state
@@ -280,12 +282,12 @@ cx q[1], q[2];
 // Step 2: Bell measurement on q[0] and q[1]
 cx q[0], q[1];
 h q[0];
-measure q[0] -> c[0];
-measure q[1] -> c[1];
+measure q[0] -> c1[0];
+measure q[1] -> c2[0];
 
 // Step 3: Conditional operations on q[2]
-if (c[1] == 1) x q[2];
-if (c[0] == 1) z q[2];
+if (c1 == 1) x q[2];
+if (c2 == 1) z q[2];
 
 // Now q[2] holds the original unknown state`
 
