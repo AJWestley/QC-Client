@@ -82,6 +82,54 @@ function saveSVG(filename = 'circuit.svg') {
   URL.revokeObjectURL(url);
 }
 
-document.getElementById('saveImageBtn').addEventListener('click', function() {
+function savePNG(filename = 'circuit.png', scaleFactor = 10) {
+  const svgEl = document.getElementById("circuit-image").querySelector('svg');
+  if (!svgEl) {
+    console.error('No SVG found in container.');
+    return;
+  }
+
+  inlineComputedStyles(svgEl);
+
+  const svgString = new XMLSerializer().serializeToString(svgEl);
+  const svgBase64 = btoa(unescape(encodeURIComponent(svgString)));
+
+  const img = new Image();
+  img.onload = function () {
+    const width = img.width * scaleFactor;
+    const height = img.height * scaleFactor;
+
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext('2d');
+
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+
+    ctx.drawImage(img, 0, 0, width, height);
+
+    canvas.toBlob((blob) => {
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(link.href);
+    }, 'image/png');
+  };
+
+  img.onerror = function (err) {
+    console.error("Failed to load image from SVG", err);
+  };
+
+  img.src = 'data:image/svg+xml;base64,' + svgBase64;
+}
+
+
+document.getElementById('exportSVGBtn').addEventListener('click', function() {
   saveSVG('circuit.svg');
+});
+
+document.getElementById('exportPNGBtn').addEventListener('click', function() {
+  savePNG('circuit.png');
 });

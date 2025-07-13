@@ -10,7 +10,7 @@ export function getErrors(lines, others = []) {
     return [
       ...others,
       ...checkUnclosedBrackets(lines),
-      ...checkUnknownIdentifiers(lines, knownWords),
+      // ...checkUnknownIdentifiers(lines, knownWords), TODO: re-enable once register vars aren't flagged
       ...checkIntermediateMeasure(lines),
       ...checkNoMeasure(lines),
       ...checkNoCReg(lines),

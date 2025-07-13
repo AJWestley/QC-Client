@@ -23,10 +23,22 @@
         <div id="top-panel">
           <div id="panel-header">
             <div id="panel-title">Circuit Diagram</div>
-            <button id="saveImageBtn" class="defBtn">
-              <i class="fa-solid fa-image"></i>
-              Export Diagram
-            </button>
+            <div id="export-diagram" class="dropdown">
+              <button id="diagramDropdownBtn" class="defBtn">
+                <i class="fa-solid fa-file-export"></i>
+                Export ▼
+              </button>
+              <div class="dropdown-content">
+                <button id="exportPNGBtn">
+                  <i class="fa-solid fa-image"></i>
+                  PNG
+                </button>
+                <button id="exportSVGBtn">
+                  <i class="fa-solid fa-file-image"></i>
+                  SVG
+                </button>
+              </div>
+            </div>
           </div>
           <div id="circuit-image" ></div>
         </div>
@@ -34,10 +46,16 @@
         <div id="bottom-panel">
           <div id="panel-header">
             <div id="panel-title">Results</div>
-            <button id="saveResultsBtn" class="defBtn">
-              <i class="fa-solid fa-image" disabled></i>
-              Export Data
-            </button>
+            <div id="export-results" class="dropdown">
+              <button id="exportDropdownBtn" class="defBtn" disabled>
+                <i class="fa-solid fa-file-export"></i>
+                Export ▼
+              </button>
+              <div class="dropdown-content">
+                <button id="exportRawBtn">Export Raw Data</button>
+                <button id="exportPlotBtn">Export Plot</button>
+              </div>
+            </div>
           </div>
           <div id="result-plot" >
             <canvas id="barChart"></canvas>
@@ -54,15 +72,16 @@
                     <i class="fa-solid fa-play"></i>
                     Run
                 </button>
-                <button id="clearBtn" class="defBtn">
-                    <i class="fa-solid fa-trash"></i>
-                    Clear
-                </button>
                 <button id="brightModeBtn" class="defBtn", onclick="switchTheme()">
                     <i class="fa-solid fa-circle-half-stroke"></i>
                 </button>
             </div>
-            <div id="file-buttons">
+            <div class="dropdown">
+              <button id="fileDropdownBtn" class="defBtn">
+                <i class="fa-solid fa-file"></i>
+                File ▼
+              </button>
+              <div class="dropdown-content">
                 <button id="loadBtn" class="defBtn">
                     <i class="fa fa-upload" aria-hidden="true"></i>
                     Upload
@@ -75,6 +94,20 @@
                     <i class="fa-solid fa-floppy-disk"></i>
                     Save
                 </button>
+                <button id="clearBtn" class="defBtn">
+                    <i class="fa-solid fa-trash"></i>
+                    Clear
+                </button>
+              </div>
+            </div>
+            <div id="algoDropdown" class="dropdown">
+              <button id="algoDropdownBtn" class="defBtn">
+                <i class="fa-solid fa-atom"></i>
+                Algorithms ▼
+              </button>
+              <div class="dropdown-content">
+                <!-- Dynamically add algorithms here -->
+              </div>
             </div>
           </div>
         </div>
@@ -91,6 +124,7 @@
   <script type="module" src="scripts/syntax_highlighting.js"></script>
   <script type="module" src="scripts/monaco_setup.js"></script>
   <script type="module" src="scripts/resizable.js"></script>
+  <script type="module" src="scripts/dropdown.js"></script>
   <script src="scripts/swap_style.js"></script>
 </body>
 </html>

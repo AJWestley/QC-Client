@@ -80,6 +80,33 @@ html, body {
     z-index: 10;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 100;
+  flex-direction: column;
+}
+
+.dropdown-content button {
+  background-color: inherit;
+  border: 2px solid transparent;
+  text-align: left;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.dropdown.show .dropdown-content {
+  display: flex;
+}
+
 #up-down-resizer {
   height: 3px;
   cursor: row-resize;
@@ -188,10 +215,11 @@ canvas {
 
 #button-box {
     width: 100%;
-    padding-left: 10px;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     border-bottom: 2px solid;
 }

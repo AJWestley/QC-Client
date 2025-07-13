@@ -1,4 +1,4 @@
-var myChart = null;
+var chart = null;
 var data = null
 
 export function plotCounts(counts) {
@@ -6,18 +6,18 @@ export function plotCounts(counts) {
 
     data = counts;
     
-    if (myChart) {
-        myChart.destroy();
+    if (chart) {
+        chart.destroy();
     }
 
     if (data) {
-        document.getElementById('saveResultsBtn').disabled = false;
+        document.getElementById('exportDropdownBtn').disabled = false;
     } else {
-        document.getElementById('saveResultsBtn').disabled = true;
+        document.getElementById('exportDropdownBtn').disabled = true;
         return;
     }
     
-    myChart = new Chart(ctx, {
+    chart = new Chart(ctx, {
         type: 'bar',
         data: {
         labels: Object.keys(data),
@@ -29,6 +29,7 @@ export function plotCounts(counts) {
         options: {
         responsive: true,
         maintainAspectRatio: false,
+        devicePixelRatio: 4,
         scales: {
             y: {
                 beginAtZero: true,
@@ -48,7 +49,7 @@ export function plotCounts(counts) {
     });
 }
 
-document.getElementById('saveResultsBtn').addEventListener('click', function() {
+document.getElementById('exportRawBtn').addEventListener('click', function() {
     if (!data) {
         console.error('No data to save');
         return;
@@ -65,4 +66,19 @@ document.getElementById('saveResultsBtn').addEventListener('click', function() {
     document.body.appendChild(link);
 
     link.click();
+    document.body.removeChild(link);
+});
+
+document.getElementById('exportPlotBtn').addEventListener('click', function() {
+    if (!chart) {
+        console.error('No plot to save');
+        return;
+    }
+
+    const link = document.createElement('a');
+    link.href = chart.toBase64Image();
+    link.download = 'measurement_plot.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 });
