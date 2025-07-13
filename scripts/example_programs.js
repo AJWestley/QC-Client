@@ -295,7 +295,7 @@ include "qelib1.inc";
 qreg q[3];  // q[0], q[1] control qubits; q[2] target eigenstate
 creg c[2];  // measure q[0], q[1]
 
-/* Prepare eigenstate of U = Rz(pi/2) on q[2] */
+// Prepare eigenstate of U = Rz(pi/2) on q[2]
 h q[2];  // |+> is eigenstate of Z with eigenvalue +1
 
 // Initialize control qubits to |0> and put in superposition
@@ -393,7 +393,7 @@ const examplePrograms = {
     "Quantum Phase Estimation": QPE_3BIT,
     // "Quantum Teleportation": TELEPORTATION, TODO: fix teleportation on server
     "Superdense Coding": SUPERDENSE,
-    "Error Correction": ERROR_CORRECTION,
+    // "Error Correction": ERROR_CORRECTION,
     "Swap Test": SWAP_TEST,
 }
 
