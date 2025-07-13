@@ -391,7 +391,7 @@ const examplePrograms = {
     "2-Bit IQFT": IQFT_2BIT,
     "4-Bit IQFT": IQFT_4BIT,
     "Quantum Phase Estimation": QPE_3BIT,
-    // "Quantum Teleportation": TELEPORTATION, TODO: fix teleportation on server
+    "Quantum Teleportation": TELEPORTATION,
     "Superdense Coding": SUPERDENSE,
     "Error Correction": ERROR_CORRECTION,
     "Swap Test": SWAP_TEST,
