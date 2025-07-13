@@ -11,7 +11,6 @@ export function getErrors(lines, others = []) {
       ...others,
       ...checkUnclosedBrackets(lines),
       // ...checkUnknownIdentifiers(lines, knownWords), TODO: re-enable once register vars aren't flagged
-      ...checkIntermediateMeasure(lines),
       ...checkNoMeasure(lines),
       ...checkNoCReg(lines),
       ...checkNoQReg(lines),
@@ -225,37 +224,6 @@ function checkNoMeasure(lines) {
   }
 
   return markers;
-}
-
-function checkIntermediateMeasure(lines) {
-  const markers = [];
-  let foundMeasureBlock = false;
-  let violated = false;
-  
-  lines.forEach((line, i) => {
-    const code = line.split('//')[0];
-
-    if (!code || code.startsWith('//') || code.startsWith('#') || violated) {
-      return; 
-    }
-
-    const isMeasure = /^measure\s+.+?\s*$/.test(code);
-
-    if (isMeasure) {
-      foundMeasureBlock = true;
-      markers.push({
-        startLineNumber: i + 1,
-        startColumn: 0,
-        endLineNumber: i + 1,
-        endColumn: line.length + 1,
-        message: 'Measurement Error: intermediate measurement not allowed.',
-        severity: monaco.MarkerSeverity.Error
-      });
-    } else if (foundMeasureBlock) {
-      violated = true;
-    }
-  });
-  return violated ? markers : [];
 }
 
 function checkUnclosedBrackets(lines) {

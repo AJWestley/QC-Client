@@ -393,7 +393,7 @@ const examplePrograms = {
     "Quantum Phase Estimation": QPE_3BIT,
     // "Quantum Teleportation": TELEPORTATION, TODO: fix teleportation on server
     "Superdense Coding": SUPERDENSE,
-    // "Error Correction": ERROR_CORRECTION,
+    "Error Correction": ERROR_CORRECTION,
     "Swap Test": SWAP_TEST,
 }
 
