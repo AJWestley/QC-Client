@@ -58,9 +58,9 @@
 }
 
 #shot-selector {
-    background-color: #2d2d2d;
-    color: #f0f0f0;
-    border-color: #2d2d2d;
+    background-color: #2d2d2d!important;
+    color: #f0f0f0 !important;
+    border-color: #2d2d2d !important;
 }
 
 #shot-selector:focus {
