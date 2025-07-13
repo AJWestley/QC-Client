@@ -38,12 +38,10 @@ function createMarkers(response) {
 
 
 export function execution_success(data) {
-    console.log('success');
     plotCounts(data.counts);
 }
 
 export function execution_failure(data) {
     createMarkers(data);
-    executionFailedMessage('Runtime Error');
     console.log(data);
 }

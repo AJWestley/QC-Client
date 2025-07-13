@@ -30,7 +30,6 @@ class QuantumAPI {
         if (response.ok) {
           this._baseUrl = url;
           this._connected = true;
-          console.log('Connected', response.text())
           return true;
         }
       } catch (e) {

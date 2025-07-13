@@ -25,7 +25,6 @@ function showMessage(type) {
 }
 
 async function heartbeat() {
-  console.log('Connecting...');
   await api.connect();
 
   let alreadyFailed = false;
@@ -35,7 +34,6 @@ async function heartbeat() {
     if (connected) {
       const [_, status] = await api.ping();
       if (status !== 200) {
-        console.log('Disconnected');
         showMessage('disconnected');
         connected = false;
       }
@@ -43,13 +41,11 @@ async function heartbeat() {
     else {
       connected = await api.connect();
       if (connected) {
-        console.log('Connected');
         showMessage('connected');
         alreadyFailed = false;
       }
       else {
         if (!alreadyFailed) {
-          console.log('Failed to connect');
           showMessage('connection-failed');
           alreadyFailed = true;
         }

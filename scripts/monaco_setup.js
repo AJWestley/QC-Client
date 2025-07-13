@@ -16,7 +16,6 @@ document.getElementById("playBtn").onclick = async () => {
     }
     const [ result, status ] = await api.execute(code);
     if (status === 200) {
-      console.log('here');
       execution_success(result);
     }
     else {
