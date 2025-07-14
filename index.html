@@ -46,6 +46,11 @@
         <div id="bottom-panel">
           <div id="panel-header">
             <div id="panel-title">Results</div>
+            <select name="plot-selector" id="plot-selector" disabled>
+              <option value=0>Counts</option>
+              <option value=1>State Vector</option>
+              <option value=2>Probabilities</option>
+            </select>
             <div id="export-results" class="dropdown">
               <button id="exportDropdownBtn" class="defBtn" disabled>
                 <i class="fa-solid fa-file-export"></i>
@@ -57,8 +62,14 @@
               </div>
             </div>
           </div>
-          <div id="result-plot" >
+          <div id="result-plot">
             <canvas id="barChart"></canvas>
+
+            <canvas id="stateVectorChart" style="display: none;"></canvas>
+            <div id="stateVectorMsg" style="display: none; text-align: center;">No state vector to display.</div>
+
+            <canvas id="probChart" style="display: none;"></canvas>
+            <div id="probChartMsg" style="display: none; text-align: center;">No probability data to display.</div>
           </div>
         </div>
       <div id="resizer"></div>

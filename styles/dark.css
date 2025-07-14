@@ -77,33 +77,42 @@
     border-color: purple !important;
 }
 
-#backend-selector {
+select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+}
+
+select {
     background-color: #1e1e1e!important;
     color: #f0f0f0 !important;
     border-color: #2d2d2d !important;
 }
 
-#backend-selector:focus {
+select:focus {
     outline: none;
 }
 
-#backend-selector:hover {
+select:hover {
     cursor: pointer;
     outline: none;
     border-color: purple !important;
 }
 
-#backend-selector option {
+select:disabled:hover {
+    cursor: not-allowed;
+    border-color: #2d2d2d !important;
+}
+
+select option {
     background-color: #2d2d2d;
     color: #f0f0f0;
 }
 
-#backend-selector option:hover {
+select option:hover {
     background-color: #444;
     color: #f0f0f0;
 }
 
-#backend-selector option:focus {
+select option:focus {
     background-color: #444;
     color: #f0f0f0;
 }

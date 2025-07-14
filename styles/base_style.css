@@ -123,18 +123,32 @@ input[type=number]::-webkit-inner-spin-button {
   border: 2px solid;
 }
 
-#backend-selector:hover {
+#backend-selector {
+  width: 100%;
+}
+
+#plot-selector {
+  width: 110px;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none !important;
+  -moz-appearance: textfield;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  padding: 0.3rem 0.5rem;
+  border: 2px solid;
+}
+
+select:hover {
     cursor: pointer;
     outline: none;
 }
 
-#backend-selector {
-  appearance: none;
-  width: 100%;
-  -webkit-appearance: none !important;
-  -moz-appearance: textfield;
-  padding: 0.3rem 0.5rem;
-  border: 2px solid;
+select:disabled:hover {
+    cursor: not-allowed;
 }
 
 label {

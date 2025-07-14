@@ -1,6 +1,6 @@
 import { getErrors } from "./error_checks.js";
 import { executionFailedMessage } from "./validate_code.js";
-import { plotCounts } from "./plot_results.js";
+import { createPlots } from "./plot_results.js";
 
 function createMarkers(response) {
     const model = editor.getModel();
@@ -38,10 +38,18 @@ function createMarkers(response) {
 
 
 export function execution_success(data) {
-    plotCounts(data.counts);
+    createPlots(data.counts, data.statevector, data.probabilities);
+    const plotSelector = document.getElementById("plot-selector");
+    if (plotSelector) {
+        plotSelector.disabled = false;
+    }
 }
 
 export function execution_failure(data) {
     createMarkers(data);
-    console.log(data);
+    executionFailedMessage("Execution Failed");
+    const plotSelector = document.getElementById("plot-selector");
+    if (plotSelector) {
+        plotSelector.disabled = true;
+    }
 }
