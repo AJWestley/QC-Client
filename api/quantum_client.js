@@ -60,8 +60,8 @@ class QuantumAPI {
     }
   }
 
-  async execute(qasmScript, shots = 1024) {
-    return this._post('/execute', { script: qasmScript, shots }, 10000, (data) => {
+  async execute(qasmScript, shots = 1024, backend = 'fault-tolerant') {
+    return this._post('/execute', { script: qasmScript, shots , backend}, 300000, (data) => {
       if (data.statevector) {
         data.statevector = convertStateVector(data.statevector);
       }

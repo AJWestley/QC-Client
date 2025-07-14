@@ -58,14 +58,54 @@
 }
 
 #shot-selector {
-    background-color: #2d2d2d!important;
+    background-color: #1e1e1e !important;
     color: #f0f0f0 !important;
     border-color: #2d2d2d !important;
+}
+
+#shots-box {
+    border-bottom: #333 2px solid;
 }
 
 #shot-selector:focus {
     outline: none;
     border-color: purple;
+}
+
+#shot-selector:hover {
+    outline: none;
+    border-color: purple !important;
+}
+
+#backend-selector {
+    background-color: #1e1e1e!important;
+    color: #f0f0f0 !important;
+    border-color: #2d2d2d !important;
+}
+
+#backend-selector:focus {
+    outline: none;
+}
+
+#backend-selector:hover {
+    cursor: pointer;
+    outline: none;
+    border-color: purple !important;
+}
+
+#backend-selector option {
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+}
+
+#backend-selector option:hover {
+    background-color: #444;
+    color: #f0f0f0;
+}
+
+#backend-selector option:focus {
+    background-color: #444;
+    color: #f0f0f0;
 }
 
 #top-panel {

@@ -89,7 +89,7 @@ html, body {
   display: none;
   position: absolute;
   right: 0;
-  min-width: 160px;
+  min-width: 100px;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
   z-index: 100;
   flex-direction: column;
@@ -100,7 +100,7 @@ html, body {
   border: 2px solid transparent;
   text-align: left;
   padding: 10px;
-  font-size: 12px;
+  font-size: 0.65rem;
 }
 
 .dropdown.show .dropdown-content {
@@ -108,7 +108,11 @@ html, body {
 }
 
 #shotsDropdownContent {
-    min-width: 100px;
+    min-width: 80px;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
 }
 
 #shot-selector {
@@ -117,6 +121,25 @@ html, body {
   -moz-appearance: textfield;
   padding: 0.3rem 0.5rem;
   border: 2px solid;
+}
+
+#backend-selector:hover {
+    cursor: pointer;
+    outline: none;
+}
+
+#backend-selector {
+  appearance: none;
+  width: 100%;
+  -webkit-appearance: none !important;
+  -moz-appearance: textfield;
+  padding: 0.3rem 0.5rem;
+  border: 2px solid;
+}
+
+label {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.5rem;
 }
 
 #up-down-resizer {
@@ -143,7 +166,7 @@ html, body {
 }
 
 #panel-title {
-  font-size: 16px;
+  font-size: 1rem;
   pointer-events: none;
 }
 

@@ -20,7 +20,9 @@ document.getElementById("playBtn").onclick = async () => {
       shots = 1024;
     }
 
-    const [ result, status ] = await api.execute(code, shots);
+    const backend = document.getElementById("backend-selector")?.value || 'fault-tolerant';
+
+    const [ result, status ] = await api.execute(code, shots, backend);
     if (status === 200) {
       execution_success(result);
     }
