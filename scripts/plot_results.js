@@ -25,6 +25,10 @@ function getAmplitude(complexNum) {
     return complexNum ? Math.sqrt(complexNum.re ** 2 + complexNum.im ** 2) : 0;
 }
 
+function getPhase(complexNum) {
+    return complexNum ? Math.atan2(complexNum.im, complexNum.re) : 0;
+}
+
 function plotCounts(counts) {
     const ctx = document.getElementById('barChart');
 
@@ -48,6 +52,9 @@ function plotCounts(counts) {
         datasets: [{
             label: '# of Measurements',
             data: Object.values(data),
+            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+            borderColor: 'rgba(153, 102, 255, 1)',
+            borderWidth: 1
         }]
         },
         options: {
@@ -81,7 +88,18 @@ function plotStateVector(stateVector) {
     }
     
     const amplitudes = stateVector.map(complexNum => getAmplitude(complexNum));
+    const phases = stateVector.map(c => getPhase(c));
     const labels = stateVector.map((_, index) => `|${index}>`);
+
+    const backgroundColors = phases.map(phase => {
+        const hue = ((phase + Math.PI) / (2 * Math.PI)) * 360;
+        return `hsla(${hue}, 100%, 50%, 0.2)`;
+    });
+
+    const borderColors = phases.map(phase => {
+    const hue = ((phase + Math.PI) / (2 * Math.PI)) * 360;
+    return `hsl(${hue}, 100%, 50%)`;
+});
 
     chart[1] = new Chart(ctx, {
         type: 'bar',
@@ -90,8 +108,8 @@ function plotStateVector(stateVector) {
             datasets: [{
                 label: 'State Vector Amplitudes',
                 data: amplitudes,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: backgroundColors,
+                borderColor: borderColors,
                 borderWidth: 1
             }]
         },
@@ -111,6 +129,18 @@ function plotStateVector(stateVector) {
                     title: {
                         display: true,
                         text: 'State'
+                    }
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const index = context.dataIndex;
+                            const amplitude = amplitudes[index].toFixed(3);
+                            const phaseDeg = (phases[index] * 180 / Math.PI).toFixed(1);
+                            return `Amplitude: ${amplitude}, Phase: ${phaseDeg}°`;
+                        }
                     }
                 }
             }

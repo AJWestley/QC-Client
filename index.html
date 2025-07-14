@@ -88,25 +88,6 @@
                 </button>
             </div>
             <div class="dropdown">
-              <button id="shotsDropdownBtn" class="defBtn">
-                <i class="fa-solid fa-gears"></i>
-                Settings ▼
-              </button>
-              <div class="dropdown-content" id="shotsDropdownContent">
-                <div id="shots-box">
-                  <label for="shot-selector"><i class="fa-solid fa-vial"></i> Shots</label>
-                  <input type="number" id="shot-selector" name="shot-selector" min="1" max="10000" value="1024" title="Number of Shots" placeholder="1024" />
-                </div>
-                <div>
-                  <label for="shot-selector"><i class="fa-solid fa-microchip"></i> Backend</label>
-                  <select name="backend-selector" id="backend-selector">
-                    <option value="fault-tolerant">Fault-Tolerant</option>
-                    <option value="noisy">Noisy</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="dropdown">
               <button id="fileDropdownBtn" class="defBtn">
                 <i class="fa-solid fa-file"></i>
                 File ▼
@@ -128,6 +109,25 @@
                     <i class="fa-solid fa-trash"></i>
                     Clear
                 </button>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button id="shotsDropdownBtn" class="defBtn">
+                <i class="fa-solid fa-gears"></i>
+                Settings ▼
+              </button>
+              <div class="dropdown-content" id="shotsDropdownContent">
+                <div id="shots-box">
+                  <label for="shot-selector"><i class="fa-solid fa-vial"></i> Shots</label>
+                  <input type="number" id="shot-selector" name="shot-selector" min="1" max="10000" value="1024" title="Number of Shots" placeholder="1024" />
+                </div>
+                <div>
+                  <label for="shot-selector"><i class="fa-solid fa-microchip"></i> Backend</label>
+                  <select name="backend-selector" id="backend-selector">
+                    <option value="fault-tolerant">Fault-Tolerant</option>
+                    <option value="noisy">Noisy</option>
+                  </select>
+                </div>
               </div>
             </div>
             <div id="algoDropdown" class="dropdown">
